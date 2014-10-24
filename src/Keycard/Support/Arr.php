@@ -103,4 +103,14 @@ class Arr extends \Illuminate\Support\Arr
 		return array();
 	}
 
+	public function encrypt( $value )
+	{
+		return $this->_app->str->encrypt( static::jsonEncode( $value ) );
+	}
+
+	public function decrypt( $value )
+	{
+		return static::jsonDecode( $this->_app->str->decrypt( $value ) );
+	}
+
 }
